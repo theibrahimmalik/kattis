@@ -1,16 +1,16 @@
 """
-Untested solution
+This solution passes on kattis but not flexibleSpaces1.py? Even though when tested on an ide they get the same output. Why is this? 
 """
 
-width, n_partitions = [int(x) for x in input().split()]
-partitions = [int(x) for x in input().split()] +[width]
+width, n = [int(x) for x in input().split()]
+partitions = [int(x) for x in input().split()] + [width]
 
-possibilities = set()
-for partition in partitions:
-    possibilities.add(partition)
-    for other_partition in partitions:
-        if partition == other_partition:
+spaces = set()
+for data in partitions:
+    spaces.add(data)
+    for data2 in partitions:
+        if data == data2:
             break
-        possibilities.add(abs(partition - other_partition))
-
-print(" ".join(str(x) for x in sorted(possibilities)))
+        spaces.add(abs(data-data2))
+        
+print(" ".join(str(x) for x in sorted(spaces)))
